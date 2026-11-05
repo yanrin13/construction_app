@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 import { signIn } from "../api/auth";
 import { useAuth } from "../../../app/providers/AuthProvider";
 
 export default function LoginPage() {
-  const navigate = useNavigate();
-
   const { session, profile, loading } = useAuth();
 
   const [email, setEmail] = useState("");
