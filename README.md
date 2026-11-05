@@ -1,75 +1,60 @@
-# React + TypeScript + Vite
+## Данные для входа
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Менеджер
+- **Роль:** Менеджер
+- **Email:** `manager@example.com`
+- **Пароль:** `manager`
 
-Currently, two official plugins are available:
+### Исполнитель
+- **Роль:** Исполнитель
+- **Email:** `executor@example.com`
+- **Пароль:** `executor`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Исполнитель 2
+- **Роль:** Исполнитель
+- **Email:** `executor1@example.com`
+- **Пароль:** `executor`
 
-## React Compiler
+## Запуск проекта
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. Установка зависимостей
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Настройка переменных окружения
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Создать файл `.env` в корне проекта:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
+
+Вместо значений-заглушек указать данные проекта Supabase.
+
+### 3. Запуск в режиме разработки
+
+```bash
+npm run dev
+```
+
+После запуска открыть адрес, указанный в терминале. Обычно это:
+
+```text
+http://localhost:5173
+```
+
+## Сборка проекта
+
+Для создания production-сборки:
+
+```bash
+npm run build
+```
+
+
+После запуска открыть адрес, указанный в терминале. Обычно это:
+
+http://localhost:5173
